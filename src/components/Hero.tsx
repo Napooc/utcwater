@@ -63,20 +63,7 @@ export const Hero = () => {
         }, {
           number: "20",
           label: "Years Experience"
-        }].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
-              className="glass rounded-2xl p-6 hover:scale-105 transition-transform duration-300"
-            >
-              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-secondary to-accent bg-clip-text text-transparent mb-2">
-                {stat.number}
-              </div>
-              <div className="text-sm md:text-base text-muted-foreground">{stat.label}</div>
-            </motion.div>
-          ))}
+        }].map((stat, index) => {})}
         </motion.div>
 
         {/* CTA Buttons */}
@@ -113,7 +100,7 @@ export const Hero = () => {
           duration: 2,
           repeat: Infinity
         }} className="text-secondary">
-            <ChevronDown size={32} />
+            
           </motion.div>
         </motion.div>
       </motion.div>

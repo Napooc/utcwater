@@ -8,10 +8,8 @@ import { Contact } from "@/components/Contact";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { FloatingEmail } from "@/components/FloatingEmail";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Hero />
       <About />
       <EquipmentShowcase />
@@ -19,11 +17,9 @@ const Index = () => {
       <KeyAdvantages />
       <Industries />
       <Contact />
-      <CTASection />
+      
       <Footer />
       <FloatingEmail />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
