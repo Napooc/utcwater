@@ -4,8 +4,10 @@ import { EquipmentShowcase } from "@/components/EquipmentShowcase";
 import { SpecializedServices } from "@/components/SpecializedServices";
 import { KeyAdvantages } from "@/components/KeyAdvantages";
 import { Industries } from "@/components/Industries";
+import { Contact } from "@/components/Contact";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
+import { FloatingEmail } from "@/components/FloatingEmail";
 
 const Index = () => {
   return (
@@ -16,8 +18,10 @@ const Index = () => {
       <SpecializedServices />
       <KeyAdvantages />
       <Industries />
+      <Contact />
       <CTASection />
       <Footer />
+      <FloatingEmail />
     </div>
   );
 };
