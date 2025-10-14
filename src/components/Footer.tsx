@@ -73,7 +73,7 @@ export const Footer = () => {
         }} viewport={{
           once: true
         }}>
-            <h4 className="text-xl font-bold mb-6 text-foreground">UK Office</h4>
+            <h4 className="text-xl font-bold mb-6 text-foreground">Office</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-1" />
