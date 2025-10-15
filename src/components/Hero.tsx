@@ -92,11 +92,20 @@ export const Hero = () => {
         duration: 0.8,
         delay: 1.3
       }} className="flex flex-col sm:flex-row gap-4 items-center">
-          <Button size="lg" className="bg-gradient-cyan text-accent-foreground hover:scale-105 transition-all duration-300 shadow-2xl text-lg px-10 py-7 rounded-2xl">
+          <Button 
+            size="lg" 
+            onClick={() => document.getElementById('equipment')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-gradient-cyan text-accent-foreground hover:scale-105 transition-all duration-300 shadow-2xl text-lg px-10 py-7 rounded-2xl"
+          >
             Explore Our Solutions
           </Button>
-          <Button size="lg" variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 text-lg px-10 py-7 rounded-2xl backdrop-blur-xl bg-background/10">
-            Request Consultation
+          <Button 
+            size="lg" 
+            variant="outline"
+            asChild
+            className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 text-lg px-10 py-7 rounded-2xl backdrop-blur-xl bg-background/10"
+          >
+            <a href="mailto:utcwater@utcwater.com">Request Consultation</a>
           </Button>
         </motion.div>
 

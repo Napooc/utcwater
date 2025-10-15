@@ -15,13 +15,15 @@ const Index = () => {
       <Hero />
       <OurSolutions />
       <About />
-      <EquipmentShowcase />
+      <div id="equipment">
+        <EquipmentShowcase />
+      </div>
       <SpecializedServices />
       <KeyAdvantages />
       <GlobalReach />
       <Industries />
+      <CTASection />
       <Contact />
-      
       <Footer />
       <FloatingEmail />
     </div>;

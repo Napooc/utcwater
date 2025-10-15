@@ -180,7 +180,11 @@ export const KeyAdvantages = () => {
             transition={{ duration: 0.6, delay: 1.2 }}
             className="mt-12"
           >
-            <Button size="lg" className="bg-gradient-cyan text-accent-foreground hover:scale-105 transition-all duration-300 shadow-2xl text-lg px-10 py-7 rounded-2xl group">
+            <Button 
+              size="lg" 
+              onClick={() => document.getElementById('equipment')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-gradient-cyan text-accent-foreground hover:scale-105 transition-all duration-300 shadow-2xl text-lg px-10 py-7 rounded-2xl group"
+            >
               Discover Our Technology
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
