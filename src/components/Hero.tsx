@@ -63,7 +63,22 @@ export const Hero = () => {
         }, {
           number: "20",
           label: "Years Experience"
-        }].map((stat, index) => {})}
+        }].map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+              className="glass-card p-8 rounded-2xl hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+                {stat.number}
+              </div>
+              <div className="text-sm text-muted-foreground uppercase tracking-wider">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* CTA Buttons */}
