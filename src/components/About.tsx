@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Shield, Award, Zap, Globe } from "lucide-react";
-import { UTCWaterLogo } from "./ui/utc-water-logo";
 import controlRoomImage from "@/assets/about-control-room.jpg";
 import teamImage from "@/assets/about-team.jpg";
 
@@ -50,32 +49,12 @@ export const About = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-6"
-          >
-            <UTCWaterLogo size="md" animated={true} />
-          </motion.div>
-
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent"
-          >
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
             About UTC WATER
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl text-muted-foreground max-w-3xl mx-auto"
-          >
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Engineering excellence in water treatment since 2005
-          </motion.p>
+          </p>
         </motion.div>
 
         {/* Main content grid */}

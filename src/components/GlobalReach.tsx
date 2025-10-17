@@ -37,15 +37,15 @@ export const GlobalReach = () => {
   ];
 
   return (
-    <section ref={ref} className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-background/50 to-background relative overflow-hidden">
+    <section ref={ref} className="py-24 bg-gradient-to-b from-background/50 to-background relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[40%] h-[40%] bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-secondary/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -58,21 +58,21 @@ export const GlobalReach = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-block mb-4"
             >
-              <span className="text-xs sm:text-sm font-semibold tracking-wider text-primary uppercase bg-primary/10 px-4 sm:px-6 py-2 rounded-full">
+              <span className="text-sm font-semibold tracking-wider text-primary uppercase bg-primary/10 px-6 py-2 rounded-full">
                 Global Presence
               </span>
             </motion.div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-foreground via-secondary to-accent bg-clip-text text-transparent mb-4 sm:mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-secondary to-accent bg-clip-text text-transparent mb-6">
               Engineering Water Solutions Across the Globe
             </h2>
 
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               From Europe to Asia, Africa to the Americas, UTC WATER delivers cutting-edge water treatment technology to clients worldwide. Our global network ensures local support with international expertise.
             </p>
 
             {/* Highlights Grid */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
+            <div className="grid grid-cols-2 gap-6 mb-8">
               {highlights.map((highlight, index) => {
                 const Icon = highlight.icon;
                 return (
@@ -81,16 +81,16 @@ export const GlobalReach = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="glass-card p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-2xl hover:shadow-xl transition-all duration-300 group"
+                    className="glass-card p-6 rounded-2xl hover:shadow-xl transition-all duration-300 group"
                   >
-                    <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-cyan rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent-foreground" />
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-cyan rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-6 h-6 text-accent-foreground" />
                       </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="text-2xl sm:text-3xl font-bold text-primary mb-0.5 sm:mb-1 truncate">{highlight.stat}</div>
-                        <div className="text-xs sm:text-sm font-semibold text-foreground mb-0.5 sm:mb-1 line-clamp-1">{highlight.label}</div>
-                        <div className="text-xs text-muted-foreground line-clamp-2">{highlight.description}</div>
+                      <div>
+                        <div className="text-3xl font-bold text-primary mb-1">{highlight.stat}</div>
+                        <div className="text-sm font-semibold text-foreground mb-1">{highlight.label}</div>
+                        <div className="text-xs text-muted-foreground">{highlight.description}</div>
                       </div>
                     </div>
                   </motion.div>
@@ -103,19 +103,19 @@ export const GlobalReach = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="border-t border-border/50 pt-4 sm:pt-6"
+              className="border-t border-border/50 pt-6"
             >
-              <h3 className="text-xs sm:text-sm font-semibold text-muted-foreground mb-3 sm:mb-4 uppercase tracking-wider">
+              <h3 className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider">
                 Key Markets
               </h3>
-              <div className="flex flex-wrap gap-2 sm:gap-3">
+              <div className="flex flex-wrap gap-3">
                 {["Europe", "Middle East", "Africa", "Asia Pacific", "Americas"].map((region, index) => (
                   <motion.span
                     key={region}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.4, delay: 1 + index * 0.1 }}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium hover:bg-primary/20 transition-colors duration-300 whitespace-nowrap"
+                    className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium hover:bg-primary/20 transition-colors duration-300"
                   >
                     {region}
                   </motion.span>

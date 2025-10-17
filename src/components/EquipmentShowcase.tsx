@@ -80,17 +80,17 @@ export const EquipmentShowcase = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8 sm:mb-12 md:mb-16"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent">
             Our Technology Arsenal
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Cutting-edge equipment designed for maximum efficiency and reliability
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {equipment.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -99,10 +99,10 @@ export const EquipmentShowcase = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500 cursor-pointer"
+                className="group relative glass rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500 cursor-pointer"
               >
                 {/* Image */}
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -114,18 +114,18 @@ export const EquipmentShowcase = () => {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 sm:p-3 glass rounded-lg sm:rounded-xl"
+                    className="absolute top-4 right-4 p-3 glass rounded-xl"
                   >
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
+                    <Icon className="w-6 h-6 text-secondary" />
                   </motion.div>
                 </div>
 
                 {/* Content */}
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 text-foreground group-hover:text-secondary transition-colors duration-300 line-clamp-2">
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-secondary transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3">
+                  <p className="text-muted-foreground text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {item.description}
                   </p>
                   
