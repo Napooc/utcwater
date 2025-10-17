@@ -74,8 +74,8 @@ export const FooterTapedDesign = () => {
               © {currentYear} UTC WATER. All rights reserved.
             </p>
             <div className="flex flex-row gap-4">
-              <a href="#privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
-              <a href="#terms" className="hover:text-cyan-400 transition-colors">Terms &amp; Conditions</a>
+              
+              
             </div>
           </div>
 
