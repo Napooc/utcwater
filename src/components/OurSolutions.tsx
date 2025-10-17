@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { InfiniteSlider } from "./ui/infinite-slider";
+import { UTCWaterLogo } from "./ui/utc-water-logo";
 import ksbLogo from "@/assets/partner-ksb.png";
 import nittoLogo from "@/assets/partner-nitto.png";
 import suezLogo from "@/assets/partner-suez.png";
@@ -37,22 +38,44 @@ export const OurSolutions = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mb-6"
+          >
+            <UTCWaterLogo size="md" animated={true} />
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="inline-block mb-4"
           >
             <span className="text-sm font-semibold tracking-wider text-primary uppercase bg-primary/10 px-6 py-2 rounded-full">
               Our Solutions
             </span>
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground via-secondary to-accent bg-clip-text text-transparent mb-6">
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground via-secondary to-accent bg-clip-text text-transparent mb-6"
+          >
             Trusted Global Partnerships
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+          >
             Collaborating with world-leading manufacturers to deliver cutting-edge water treatment technology
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Partner Logos Slider */}
