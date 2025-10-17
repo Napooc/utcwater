@@ -1,132 +1,96 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
-import { AuroraBackground } from "./ui/aurora-background";
+import { HeroGeometric } from "./ui/shape-landing-hero";
+
 export const Hero = () => {
-  return <AuroraBackground className="bg-background dark:bg-background">
-      <motion.div initial={{
-      opacity: 0,
-      y: 40
-    }} animate={{
-      opacity: 1,
-      y: 0
-    }} transition={{
-      delay: 0.3,
-      duration: 0.8,
-      ease: "easeInOut"
-    }} className="relative z-10 flex flex-col gap-8 items-center justify-center px-6 text-center">
-        {/* Main headline */}
-        <motion.h1 initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.8,
-        delay: 0.4
-      }} className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-foreground via-secondary to-accent bg-clip-text text-transparent leading-tight max-w-5xl">
-          Engineering the Future of Water Treatment
-        </motion.h1>
-
-        {/* Subheadline */}
-        <motion.p initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.8,
-        delay: 0.6
-      }} className="text-lg md:text-2xl text-muted-foreground max-w-3xl">
+  return (
+    <HeroGeometric
+      badge="Global Water Solutions"
+      title1="Engineering the Future of"
+      title2="Water Treatment"
+    >
+      {/* Subheadline */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1, ease: [0.25, 0.4, 0.25, 1] as any }}
+      >
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4">
           End-to-end water solutions for municipalities, industry, and agriculture. From mechanical screening to advanced denitrification - modular, prefabricated, ready-to-connect.
-        </motion.p>
+        </p>
+      </motion.div>
 
-        {/* Stats */}
-        <motion.div initial={{
-        opacity: 0,
-        scale: 0.9
-      }} animate={{
-        opacity: 1,
-        scale: 1
-      }} transition={{
-        duration: 0.8,
-        delay: 0.8
-      }} className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl">
-          {[{
-          number: "1000+",
-          label: "Installations"
-        }, {
-          number: "50+",
-          label: "Countries"
-        }, {
-          number: "20",
-          label: "Years Experience"
-        }].map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-              className="glass-card p-8 rounded-2xl hover:shadow-2xl transition-all duration-300"
-            >
-              <div className="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
-                {stat.number}
-              </div>
-              <div className="text-sm text-muted-foreground uppercase tracking-wider">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* CTA Buttons */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.8,
-        delay: 1.3
-      }} className="flex flex-col sm:flex-row gap-4 items-center">
-          <Button 
-            size="lg" 
-            onClick={() => document.getElementById('equipment')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-cyan text-accent-foreground hover:scale-105 transition-all duration-300 shadow-2xl text-lg px-10 py-7 rounded-2xl"
+      {/* Stats */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.1, ease: [0.25, 0.4, 0.25, 1] as any }}
+        className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl mb-8"
+      >
+        {[
+          { number: "1000+", label: "Installations" },
+          { number: "50+", label: "Countries" },
+          { number: "20", label: "Years Experience" },
+        ].map((stat, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+            className="glass-card p-8 rounded-2xl hover:shadow-2xl transition-all duration-300"
           >
-            Explore Our Solutions
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline"
-            asChild
-            className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 text-lg px-10 py-7 rounded-2xl backdrop-blur-xl bg-background/10"
-          >
-            <a href="mailto:utcwater@utcwater.com">Request Consultation</a>
-          </Button>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div initial={{
-        opacity: 0
-      }} animate={{
-        opacity: 1
-      }} transition={{
-        duration: 1,
-        delay: 1.8
-      }} className="absolute bottom-8">
-          <motion.div animate={{
-          y: [0, 10, 0]
-        }} transition={{
-          duration: 2,
-          repeat: Infinity
-        }} className="text-secondary">
-            
+            <div className="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+              {stat.number}
+            </div>
+            <div className="text-sm text-muted-foreground uppercase tracking-wider">
+              {stat.label}
+            </div>
           </motion.div>
+        ))}
+      </motion.div>
+
+      {/* CTA Buttons */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.5, ease: [0.25, 0.4, 0.25, 1] as any }}
+        className="flex flex-col sm:flex-row gap-4 items-center mb-8"
+      >
+        <Button
+          size="lg"
+          onClick={() =>
+            document.getElementById("equipment")?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="bg-gradient-cyan text-accent-foreground hover:scale-105 transition-all duration-300 shadow-2xl text-lg px-10 py-7 rounded-2xl"
+        >
+          Explore Our Solutions
+        </Button>
+        <Button
+          size="lg"
+          variant="outline"
+          asChild
+          className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 text-lg px-10 py-7 rounded-2xl backdrop-blur-xl bg-background/10"
+        >
+          <a href="mailto:utcwater@utcwater.com">Request Consultation</a>
+        </Button>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 2 }}
+        className="absolute bottom-8"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="text-secondary"
+        >
+          <ChevronDown className="w-6 h-6" />
         </motion.div>
       </motion.div>
-    </AuroraBackground>;
+    </HeroGeometric>
+  );
 };
