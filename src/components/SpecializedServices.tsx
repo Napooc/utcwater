@@ -352,16 +352,22 @@ export const SpecializedServices = () => {
                   <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center">
                     <Button
                       size="sm"
+                      asChild
                       className="bg-gradient-to-r from-secondary to-accent hover:from-secondary/90 hover:to-accent/90 text-white w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base"
                     >
-                      Request Quote
+                      <a href="mailto:utcwater@utcwater.com?subject=Quote Request for Water Treatment Solutions">
+                        Request Quote
+                      </a>
                     </Button>
                     <Button
                       size="sm"
                       variant="outline"
+                      asChild
                       className="border-secondary text-secondary hover:bg-secondary hover:text-white w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base"
                     >
-                      Schedule Consultation
+                      <a href="tel:+447707366467">
+                        Schedule Consultation
+                      </a>
                     </Button>
                   </div>
                 </div>

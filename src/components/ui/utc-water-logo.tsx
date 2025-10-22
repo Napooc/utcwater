@@ -22,8 +22,7 @@ export const UTCWaterLogo = ({
     initial: { pathLength: 0, opacity: 0 },
     animate: { 
       pathLength: 1, 
-      opacity: 1,
-      transition: { duration: 2, ease: "easeInOut" }
+      opacity: 1
     }
   };
 
@@ -31,8 +30,7 @@ export const UTCWaterLogo = ({
     initial: { y: 20, opacity: 0 },
     animate: { 
       y: 0, 
-      opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
+      opacity: 1
     }
   };
 
@@ -46,6 +44,7 @@ export const UTCWaterLogo = ({
       <div className="flex items-center">
         <motion.span 
           variants={letterVariants}
+          transition={{ duration: 0.6 }}
           className={`${sizeClasses[size]} font-black`}
           style={{ color: "#1e40af" }} // Dark blue
         >
@@ -53,6 +52,7 @@ export const UTCWaterLogo = ({
         </motion.span>
         <motion.span 
           variants={letterVariants}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className={`${sizeClasses[size]} font-black`}
           style={{ color: "#06B6D4" }} // Cyan blue
         >
@@ -60,6 +60,7 @@ export const UTCWaterLogo = ({
         </motion.span>
         <motion.span 
           variants={letterVariants}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className={`${sizeClasses[size]} font-black`}
           style={{ color: "#374151" }} // Dark gray
         >
@@ -71,6 +72,7 @@ export const UTCWaterLogo = ({
       <motion.div 
         className="relative -mt-2"
         variants={waveVariants}
+        transition={{ duration: 2 }}
       >
         <svg 
           width={size === "sm" ? "120" : size === "md" ? "160" : size === "lg" ? "240" : "320"} 
@@ -86,6 +88,7 @@ export const UTCWaterLogo = ({
             fill="none"
             strokeLinecap="round"
             variants={waveVariants}
+            transition={{ duration: 2 }}
           />
           {/* Lower wave - dark gray */}
           <motion.path
@@ -95,6 +98,7 @@ export const UTCWaterLogo = ({
             fill="none"
             strokeLinecap="round"
             variants={waveVariants}
+            transition={{ duration: 2, delay: 0.2 }}
           />
         </svg>
       </motion.div>
@@ -102,6 +106,7 @@ export const UTCWaterLogo = ({
       {/* Water text */}
       <motion.span 
         variants={letterVariants}
+        transition={{ duration: 0.6, delay: 0.3 }}
         className={`${size === "sm" ? "text-lg" : size === "md" ? "text-xl" : size === "lg" ? "text-2xl" : "text-3xl"} font-medium lowercase`}
         style={{ color: "#374151" }} // Dark gray
       >

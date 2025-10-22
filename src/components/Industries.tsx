@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Building2, Factory, Droplets, Fish } from "lucide-react";
+import { Building2, Factory, Droplets, Fish, ArrowRight } from "lucide-react";
+import { Button } from "./ui/button";
 
 const industries = [
   {
@@ -91,9 +92,20 @@ export const Industries = () => {
                     <h3 className="text-3xl font-bold mb-4 text-foreground group-hover:text-secondary transition-colors duration-300">
                       {industry.title}
                     </h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                       {industry.description}
                     </p>
+                    
+                    <Button
+                      variant="ghost"
+                      asChild
+                      className="text-secondary hover:text-secondary/80 p-0 h-auto font-semibold group/btn"
+                    >
+                      <a href="mailto:utcwater@utcwater.com?subject=Industry Solution Inquiry" className="flex items-center gap-2">
+                        Learn More
+                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                      </a>
+                    </Button>
                   </div>
 
                   {/* Animated border */}
