@@ -1,9 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Beaker, Layers, Sun, RefreshCw, Disc, Grid, Activity, Syringe, X } from "lucide-react";
+import { Beaker, Layers, Sun, RefreshCw, Disc, Grid, Activity, Syringe, X, Send } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent } from "./ui/dialog";
 import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 import coagulationImg from "@/assets/equipment-coagulation.jpg";
 import clarifierImg from "@/assets/equipment-clarifier.jpg";
 import uvImg from "@/assets/equipment-uv.jpg";
@@ -72,6 +75,9 @@ export const EquipmentShowcase = () => {
 
   const [selectedEquipment, setSelectedEquipment] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSpecsFormOpen, setIsSpecsFormOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
+  const { toast } = useToast();
 
   const openModal = (item) => {
     setSelectedEquipment(item);
@@ -81,6 +87,21 @@ export const EquipmentShowcase = () => {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedEquipment(null);
+  };
+
+  const handleSpecsRequest = (e) => {
+    e.preventDefault();
+    const subject = `Technical Specs Request: ${selectedEquipment?.title}`;
+    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ACompany: ${formData.company}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+    window.open(`mailto:utcwater@utcwater.com?subject=${subject}&body=${body}`, '_blank');
+    
+    toast({
+      title: "Request Sent!",
+      description: "We'll send you the technical specifications shortly.",
+    });
+    
+    setIsSpecsFormOpen(false);
+    setFormData({ name: "", email: "", company: "", message: "" });
   };
 
   return (
@@ -234,12 +255,10 @@ export const EquipmentShowcase = () => {
                   <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center pt-4">
                     <Button
                       size="sm"
-                      asChild
+                      onClick={() => setIsSpecsFormOpen(true)}
                       className="bg-gradient-to-r from-secondary to-accent hover:from-secondary/90 hover:to-accent/90 text-white w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base"
                     >
-                      <a href="mailto:utcwater@utcwater.com?subject=Technical Specifications Request">
-                        Get Technical Specs
-                      </a>
+                      Get Technical Specs
                     </Button>
                     <Button
                       size="sm"
@@ -258,6 +277,75 @@ export const EquipmentShowcase = () => {
           </Dialog>
         )}
       </AnimatePresence>
+
+      {/* Technical Specs Request Form */}
+      <Dialog open={isSpecsFormOpen} onOpenChange={setIsSpecsFormOpen}>
+        <DialogContent className="w-full max-w-xs sm:max-w-md max-h-[90vh] overflow-y-auto rounded-2xl">
+          <div className="p-4 sm:p-6">
+            <div className="mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-2 bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
+                Request Technical Specs
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                {selectedEquipment?.title}
+              </p>
+            </div>
+
+            <form onSubmit={handleSpecsRequest} className="space-y-4">
+              <div>
+                <label className="text-sm font-medium mb-2 block">Name *</label>
+                <Input
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="Your full name"
+                  className="glass"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium mb-2 block">Email *</label>
+                <Input
+                  required
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="your.email@company.com"
+                  className="glass"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium mb-2 block">Company</label>
+                <Input
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  placeholder="Your company name"
+                  className="glass"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium mb-2 block">Additional Information</label>
+                <Textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Any specific requirements or questions..."
+                  className="glass min-h-[100px]"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-gradient-to-r from-secondary to-accent hover:from-secondary/90 hover:to-accent/90 text-white"
+              >
+                <Send className="w-4 h-4 mr-2" />
+                Send Request
+              </Button>
+            </form>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
